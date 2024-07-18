@@ -5,7 +5,7 @@ const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
 
 export default function App() {
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin title="Harena Admin" dataProvider={dataProvider}>
       <Resource name="posts" list={ListGuesser} />
       <Resource name="comments" list={ListGuesser} />
     </Admin>
