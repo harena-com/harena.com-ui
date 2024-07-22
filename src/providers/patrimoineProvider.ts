@@ -1,26 +1,16 @@
 import {patrimoineApi, unwrap} from "@/services/harena-com-api.ts";
-import type {RawAxiosRequestConfig} from "axios";
-import {GetPatrimoines200Response} from "@harena-com/typescript-client";
 
 export const patrimoineProvider = {
-  getList: async function (
+  obtenirListePatrimoine: async function (
     page?: number | undefined,
-    pageSize?: number | undefined,
-    options?: RawAxiosRequestConfig
+    pageSize?: number | undefined
   ) {
-    return await unwrap(() =>
-      patrimoineApi.getPatrimoines(page, pageSize, options)
-    );
+    return await unwrap(() => patrimoineApi.getPatrimoines(page, pageSize));
   },
-  saveOrUpdate: async function (
-    getPatrimoines200Response?: GetPatrimoines200Response,
-    options?: RawAxiosRequestConfig
-  ) {
-    return await unwrap(() =>
-      patrimoineApi.crupdatePatrimoines(getPatrimoines200Response, options)
-    );
+  obtenirPatrimoineParNom: async function (nomPatrimoine: string) {
+    return await unwrap(() => patrimoineApi.getPatrimoineByNom(nomPatrimoine));
   },
-  getOneByName: async function (name: string, options?: RawAxiosRequestConfig) {
-    return await unwrap(() => patrimoineApi.getPatrimoineByNom(name, options));
+  ajouterOuMettreJourPatrimoine: async function () {
+    return await unwrap(() => patrimoineApi.crupdatePatrimoines());
   },
 };
