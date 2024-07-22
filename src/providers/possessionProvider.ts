@@ -1,36 +1,31 @@
 import {possessionApi, unwrap} from "@/services/harena-com-api.ts";
+import {HarenaDataProviderType} from "@/providers/HarenaDataProviderType.ts";
 
-export const possessionProvider = {
-  obtenirListePossessionsPatrimoine: async function (
-    nomPossession: string,
-    page?: number | undefined,
-    tailleDePage?: number | undefined
-  ) {
+export const possessionProvider: HarenaDataProviderType = {
+  saveOrUpdate: async function (patrimonyName) {
     return await unwrap(() =>
-      possessionApi.getPatrimoinePossessions(nomPossession, page, tailleDePage)
+      possessionApi.crupdatePatrimoinePossessions(<string>patrimonyName)
     );
   },
-  obtenirPossessionParNom: async function (
-    nomPatrimoine: string,
-    nomPossession: string
-  ) {
+  getList: async function (page, pageSize, patrimonyName) {
     return await unwrap(() =>
-      possessionApi.getPatrimoinePossessionByNom(nomPatrimoine, nomPossession)
+      possessionApi.getPatrimoinePossessions(
+        <string>patrimonyName,
+        page,
+        pageSize
+      )
     );
   },
-  ajouterOuMettreJourPatrimoine: async function (nomPossession: string) {
+  getOne: async function (patrimonyName, possessionName) {
     return await unwrap(() =>
-      possessionApi.crupdatePatrimoinePossessions(nomPossession)
+      possessionApi.getPatrimoinePossessionByNom(patrimonyName, possessionName)
     );
   },
-  effacerPossessionPatrimoine: async function (
-    nomPatrimoine: string,
-    nomPossession: string
-  ) {
+  delete: async function (patrimonyName, possessionName) {
     return await unwrap(() =>
       possessionApi.deletePatrimoinePossessionByNom(
-        nomPatrimoine,
-        nomPossession
+        patrimonyName,
+        possessionName
       )
     );
   },

@@ -1,26 +1,26 @@
 import {projectionFutureApi, unwrap} from "@/services/harena-com-api.ts";
 
-export const projectionFutureProvider = {
-  obtenirListeFluxImpossiblePatrimoineDansUneIntervalleDonnee: async function (
-    nomPatrimoine: string,
-    debut?: string | undefined,
-    fin?: string | undefined
+export const futureProjectionProvider = {
+  getImpossibleFluxListByPatrimonyInGivenInterval: async function (
+    patrimonyName: string,
+    start?: string | undefined,
+    end?: string | undefined
   ) {
     return await unwrap(() =>
       projectionFutureApi.getPatrimoineFluxImpossibles(
-        nomPatrimoine,
-        debut,
-        fin
+        patrimonyName,
+        start,
+        end
       )
     );
   },
-  obtenirGrapheDeProjectionPatrimoineSurUnePlageDeDateDonnee: async function (
-    nomPatrimoine: string,
-    debut?: string | undefined,
-    fin?: string | undefined
+  getPatrimonyProjectionGraphInGivenDateRange: async function (
+    patrimonyName: string,
+    start?: string | undefined,
+    end?: string | undefined
   ) {
     return await unwrap(() =>
-      projectionFutureApi.getPatrimoineGraph(nomPatrimoine, debut, fin)
+      projectionFutureApi.getPatrimoineGraph(patrimonyName, start, end)
     );
   },
 };

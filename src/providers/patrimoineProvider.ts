@@ -1,16 +1,17 @@
 import {patrimoineApi, unwrap} from "@/services/harena-com-api.ts";
+import {HarenaDataProviderType} from "@/providers/HarenaDataProviderType.ts";
 
-export const patrimoineProvider = {
-  obtenirListePatrimoine: async function (
-    page?: number | undefined,
-    pageSize?: number | undefined
-  ) {
+export const patrimonyProvider: HarenaDataProviderType = {
+  getList: async function (page, pageSize) {
     return await unwrap(() => patrimoineApi.getPatrimoines(page, pageSize));
   },
-  obtenirPatrimoineParNom: async function (nomPatrimoine: string) {
-    return await unwrap(() => patrimoineApi.getPatrimoineByNom(nomPatrimoine));
-  },
-  ajouterOuMettreJourPatrimoine: async function () {
+  saveOrUpdate: async function () {
     return await unwrap(() => patrimoineApi.crupdatePatrimoines());
+  },
+  getOne: async function (patrimonyName) {
+    return await unwrap(() => patrimoineApi.getPatrimoineByNom(patrimonyName));
+  },
+  delete: async function () {
+    throw new Error("Not implemented");
   },
 };
