@@ -5,9 +5,9 @@ import {
 } from "@harena-com/typescript-client";
 import {AxiosResponse} from "axios";
 
-export const patrimoineApi = new PatrimoineApi();
+export const patrimonyApi = new PatrimoineApi();
 export const possessionApi = new PossessionApi();
-export const projectionFutureApi = new ProjectionFutureApi();
+export const futureProjectionApi = new ProjectionFutureApi();
 
 export type UnwrapResult<
   TReturn extends () => Promise<AxiosResponse<unknown>>,
