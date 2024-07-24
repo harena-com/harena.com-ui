@@ -13,7 +13,7 @@ export const patrimonyProvider: HarenaDataProviderType<Patrimoine> = {
     return patrimonyApi()
       .getPatrimoines(page, pageSize)
       .then((response) =>
-        response.data.data!.map((patrimoine) => addIdField(patrimoine, "nom"))
+        response.data.data!.map((patrimony) => addIdField(patrimony, "nom"))
       );
   },
   saveOrUpdate: async (payload) => {
