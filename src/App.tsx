@@ -1,6 +1,7 @@
 import {Admin, Resource} from "react-admin";
 import {dataProvider} from "@/providers/dataProvider.ts";
 import {darkTheme, lightTheme} from "@/themes/theme.ts";
+import patrimony from "@/operations/patrimoine";
 
 export default function App() {
   return (
@@ -11,7 +12,7 @@ export default function App() {
       lightTheme={lightTheme}
       darkTheme={darkTheme}
     >
-      <Resource name="patrimony" />
+      <Resource name="patrimoines" {...patrimony} />
     </Admin>
   );
 }
