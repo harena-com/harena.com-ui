@@ -3,11 +3,11 @@ import {patrimonyProvider} from "@/providers/patrimonyProvider.ts";
 import {DataProvider as RaDataProvider} from "react-admin";
 
 const getProvider = (resourceType: string): HarenaDataProviderType<any> => {
-  if (resourceType === "patrimoine") return patrimonyProvider;
+  if (resourceType === "patrimony") return patrimonyProvider;
   throw new Error("Unknown resource type " + resourceType);
 };
 
-const dataProvider: RaDataProvider = {
+export const dataProvider: RaDataProvider = {
   getList: async function (resource, {pagination, sort, filter, meta}) {
     const response = await getProvider(resource).getList(
       pagination?.page || 1,
@@ -66,5 +66,3 @@ const dataProvider: RaDataProvider = {
     throw new Error("Not Implemented");
   },
 };
-
-export default dataProvider;

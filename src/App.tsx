@@ -1,13 +1,10 @@
-import {Admin, ListGuesser, Resource} from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
-
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+import {Admin, Resource} from "react-admin";
+import {dataProvider} from "@/providers/dataProvider.ts";
 
 export default function App() {
   return (
     <Admin title="Harena Admin" dataProvider={dataProvider}>
-      <Resource name="posts" list={ListGuesser} />
-      <Resource name="comments" list={ListGuesser} />
+      <Resource name="patrimony" />
     </Admin>
   );
 }
