@@ -1,5 +1,5 @@
-import {HarenaDataProviderType} from "@/lib/utils.ts";
-import {patrimonyProvider} from "@/providers/patrimoineProvider.ts";
+import {HarenaDataProviderType} from "@/lib/types.ts";
+import {patrimonyProvider} from "@/providers/patrimonyProvider.ts";
 import {DataProvider as RaDataProvider} from "react-admin";
 
 const getProvider = (resourceType: string): HarenaDataProviderType<any> => {

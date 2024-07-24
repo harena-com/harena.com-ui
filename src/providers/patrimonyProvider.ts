@@ -3,7 +3,7 @@ import {patrimonyApi} from "@/lib/api.ts";
 import {HarenaDataProviderType} from "@/lib/types.ts";
 import {addIdField} from "@/lib/utils.ts";
 
-export const patrimoineProvider: HarenaDataProviderType<Patrimoine> = {
+export const patrimonyProvider: HarenaDataProviderType<Patrimoine> = {
   getOne: async (nom) => {
     return patrimonyApi()
       .getPatrimoineByNom(nom)
