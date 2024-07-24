@@ -1,4 +1,4 @@
-import {HarenaDataProviderType} from "@/lib/types.ts";
+import {HarenaDataProviderType} from "@/libs/types.ts";
 import {patrimonyProvider} from "@/providers/patrimonyProvider.ts";
 import {DataProvider as RaDataProvider} from "react-admin";
 
