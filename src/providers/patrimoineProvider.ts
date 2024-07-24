@@ -1,17 +1,27 @@
-import {patrimonyApi, unwrap} from "@/services/harena-com-api.ts";
-import {HarenaDataProviderType} from "@/providers/HarenaDataProviderType.ts";
+import {Patrimoine} from "@harena-com/typescript-client";
+import {patrimonyApi} from "@/lib/api.ts";
+import {HarenaDataProviderType} from "@/lib/types.ts";
+import {addIdField} from "@/lib/utils.ts";
 
-export const patrimonyProvider: HarenaDataProviderType = {
-  getList: async function (page, pageSize) {
-    return await unwrap(() => patrimonyApi.getPatrimoines(page, pageSize));
+export const patrimoineProvider: HarenaDataProviderType<Patrimoine> = {
+  getOne: async (nom) => {
+    return patrimonyApi()
+      .getPatrimoineByNom(nom)
+      .then((response) => addIdField(response.data, "nom"));
   },
-  saveOrUpdate: async function () {
-    return await unwrap(() => patrimonyApi.crupdatePatrimoines());
+  getList: async (page, pageSize) => {
+    return patrimonyApi()
+      .getPatrimoines(page, pageSize)
+      .then((response) =>
+        response.data.data!.map((patrimoine) => addIdField(patrimoine, "nom"))
+      );
   },
-  getOne: async function (patrimonyName) {
-    return await unwrap(() => patrimonyApi.getPatrimoineByNom(patrimonyName));
+  saveOrUpdate: async (payload) => {
+    return patrimonyApi()
+      .crupdatePatrimoines({data: [payload]})
+      .then((response) => addIdField(response.data.data![0], "nom"));
   },
-  delete: async function () {
-    throw new Error("Not implemented");
+  delete: () => {
+    throw new Error("Not Implemented");
   },
 };
