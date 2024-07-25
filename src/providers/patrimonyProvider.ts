@@ -4,22 +4,22 @@ import {HarenaDataProviderType} from "@/lib/types.ts";
 import {addIdField} from "@/lib/utils.ts";
 
 export const patrimonyProvider: HarenaDataProviderType<Patrimoine> = {
-  getOne: async (nom) => {
+  getOne: async (patrimonyName) => {
     return patrimonyApi()
-      .getPatrimoineByNom(nom)
-      .then((response) => addIdField(response.data, "nom"));
+      .getPatrimoineByNom(patrimonyName)
+      .then((response) => addIdField(response.data));
   },
   getList: async (page, pageSize) => {
     return patrimonyApi()
       .getPatrimoines(page, pageSize)
       .then((response) =>
-        response.data.data!.map((patrimony) => addIdField(patrimony, "nom"))
+        response.data.data!.map((patrimony) => addIdField(patrimony))
       );
   },
   saveOrUpdate: async (payload) => {
     return patrimonyApi()
       .crupdatePatrimoines({data: [payload]})
-      .then((response) => addIdField(response.data.data![0], "nom"));
+      .then((response) => addIdField(response.data.data![0]));
   },
   delete: () => {
     throw new Error("Not Implemented");
