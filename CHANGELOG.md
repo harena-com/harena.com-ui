@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/harena-com/harena.com-ui/compare/v0.0.3...v0.1.0) (2024-07-25)
+
+### Features
+
+- list of patrimonies ([0d77446](https://github.com/harena-com/harena.com-ui/commit/0d774469044892badf33d67b9b0642534c75eee1))
+- list of possessions ([37923e5](https://github.com/harena-com/harena.com-ui/commit/37923e5eb695efbcd9a7de135190c791eaa779e3))
+- new theme config ([c0dcb14](https://github.com/harena-com/harena.com-ui/commit/c0dcb143a9fa6d69f3309cb97c6c1abad3e8d8d1))
+
 ### 0.0.3 (2024-07-24)
 
 ### Features
