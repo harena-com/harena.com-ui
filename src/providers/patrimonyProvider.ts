@@ -1,7 +1,7 @@
 import {Patrimoine} from "@harena-com/typescript-client";
-import {patrimonyApi} from "@/libs/api.ts";
-import {HarenaDataProviderType} from "@/libs/types.ts";
-import {addIdField} from "@/libs/utils.ts";
+import {patrimonyApi} from "@/lib/api.ts";
+import {HarenaDataProviderType} from "@/lib/types.ts";
+import {addIdField} from "@/lib/utils.ts";
 
 export const patrimonyProvider: HarenaDataProviderType<Patrimoine> = {
   getOne: async (nom) => {

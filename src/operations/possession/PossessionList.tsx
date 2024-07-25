@@ -17,7 +17,7 @@ const PatrimonyListActions = () => {
   );
 };
 
-export default function PatrimonyList() {
+export default function PossessionList() {
   return (
     <List actions={<PatrimonyListActions />}>
       <Datagrid bulkActionButtons={false}>
