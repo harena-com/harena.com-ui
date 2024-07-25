@@ -1,6 +1,6 @@
 import {Configuration} from "@harena-com/typescript-client";
 
-export const BASE_PATH = import.meta.env.VITE_HARENA_COM_VIRTUAL_SERVER;
+export const BASE_PATH = import.meta.env.VITE_HARENA_COM_API;
 
 export const getConfiguration = () => {
   const newConfig: Configuration = new Configuration();

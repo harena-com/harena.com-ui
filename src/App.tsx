@@ -12,7 +12,7 @@ export default function App() {
       lightTheme={lightTheme}
       darkTheme={darkTheme}
     >
-      <Resource name="patrimoines" {...patrimony} />
+      <Resource name="patrimony" {...patrimony} />
     </Admin>
   );
 }

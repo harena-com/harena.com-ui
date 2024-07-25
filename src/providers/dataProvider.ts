@@ -3,7 +3,7 @@ import {patrimonyProvider} from "@/providers/patrimonyProvider.ts";
 import {DataProvider as RaDataProvider} from "react-admin";
 
 const getProvider = (resourceType: string): HarenaDataProviderType<any> => {
-  if (resourceType === "patrimoines") return patrimonyProvider;
+  if (resourceType === "patrimony") return patrimonyProvider;
   throw new Error("Unknown resource type " + resourceType);
 };
 
