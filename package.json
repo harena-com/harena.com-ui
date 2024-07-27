@@ -11,7 +11,8 @@
     "commit": "cz",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepare": "husky"
   },
   "dependencies": {
     "@harena-com/typescript-client": "^1.0.0",
