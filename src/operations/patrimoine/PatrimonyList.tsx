@@ -22,8 +22,8 @@ export default function PatrimonyList() {
     <List actions={<PatrimonyListActions />}>
       <Datagrid bulkActionButtons={false}>
         <TextField source="nom" label="Nom" />
-        <DateField source="t" label="Date T" />
         <TextField source="possesseur.nom" label="Possesseur" />
+        <DateField source="t" label="Date T" />
         <FunctionField
           render={(patrimony) => renderMoney(patrimony.valeur_comptable)}
           label="Valeur Comptable"

@@ -3,7 +3,7 @@ import PatrimonyCreate from "@/operations/patrimoine/PatrimonyCreate.tsx";
 
 const patrimony = {
   list: <PatrimonyList />,
-  create: <PatrimonyCreate />
+  create: <PatrimonyCreate />,
 };
 
 export default patrimony;
