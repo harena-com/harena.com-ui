@@ -1,5 +1,4 @@
 import {Configuration} from "@harena-com/typescript-client";
-import {v4 as uuidv4} from "uuid";
 
 export const BASE_PATH = import.meta.env.VITE_HARENA_COM_API;
 
@@ -9,10 +8,8 @@ export const getConfiguration = () => {
   return newConfig;
 };
 
-export const addIdField = <T>(data: T) => {
-  const uniqueId = uuidv4();
-
-  return {...data, id: uniqueId};
+export const addIdField = <T>(data: T, key: keyof T) => {
+  return {...data, id: data[key]};
 };
 
 export const renderMoney = (value: number) => {

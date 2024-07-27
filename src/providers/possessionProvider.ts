@@ -9,7 +9,7 @@ export const possessionProvider: HarenaDataProviderType<PossessionAvecType> = {
       .getPatrimoinePossessions(meta, page, pageSize)
       .then((response) =>
         response.data.data!.map((possessionWithType) =>
-          addIdField(possessionWithType)
+          addIdField(possessionWithType, "type")
         )
       );
   },

@@ -7,19 +7,19 @@ export const patrimonyProvider: HarenaDataProviderType<Patrimoine> = {
   getOne: async (patrimonyName) => {
     return patrimonyApi()
       .getPatrimoineByNom(patrimonyName)
-      .then((response) => addIdField(response.data));
+      .then((response) => addIdField(response.data, "nom"));
   },
   getList: async (page, pageSize) => {
     return patrimonyApi()
       .getPatrimoines(page, pageSize)
       .then((response) =>
-        response.data.data!.map((patrimony) => addIdField(patrimony))
+        response.data.data!.map((patrimony) => addIdField(patrimony, "nom"))
       );
   },
   saveOrUpdate: async (payload) => {
     return patrimonyApi()
       .crupdatePatrimoines({data: [payload]})
-      .then((response) => addIdField(response.data.data![0]));
+      .then((response) => addIdField(response.data.data![0], "nom"));
   },
   delete: () => {
     throw new Error("Not Implemented");

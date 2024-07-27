@@ -1,6 +1,6 @@
 import {
   DateField,
-  RichTextField,
+  NumberField,
   Show,
   SimpleShowLayout,
   TextField,
@@ -10,10 +10,10 @@ export default function PatrimonyShow() {
   return (
     <Show>
       <SimpleShowLayout>
-        <TextField source="title" />
-        <TextField source="teaser" />
-        <RichTextField source="body" />
-        <DateField label="Publication date" source="published_at" />
+        <TextField source="nom" label="Nom" />
+        <TextField source="possesseur.nom" label="Nom du Possesseur" />
+        <DateField source="t" label="Date" />
+        <NumberField source="valeur_comptable" label="Valeur Comptable" />
       </SimpleShowLayout>
     </Show>
   );

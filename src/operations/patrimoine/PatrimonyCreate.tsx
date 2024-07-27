@@ -6,7 +6,6 @@ import {
   SimpleForm,
   TextInput,
 } from "react-admin";
-import {numberValidator} from "@/operations/patrimoine/utils/numberValidator.ts";
 
 export default function PatrimonyCreate() {
   return (
@@ -22,7 +21,7 @@ export default function PatrimonyCreate() {
         <NumberInput
           name="valeur comptable"
           source="valeur_comptable"
-          validate={[required(), numberValidator]}
+          validate={[required()]}
           parse={Number}
         />
       </SimpleForm>
