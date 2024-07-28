@@ -19,7 +19,12 @@ export default function PossessionList() {
   }
 
   return (
-    <List resource='possession' actions={<PossessionListActions />} queryOptions={{ meta: { patrimonyName } }}>
+    <List
+      title=' 🇲🇬 '
+      resource='possession'
+      actions={<PossessionListActions />}
+      queryOptions={{ meta: { patrimonyName } }}
+    >
       <Datagrid bulkActionButtons={false}>
         <DateField source='t' label='Date T' />
         <TextField source='nom' label='nom' />

@@ -16,23 +16,40 @@ const addPossessionId = (possession: PossessionAvecType) => {
 
 export const possessionProvider: HarenaDataProviderType<Possession> = {
   getOne: async (possessionName, { patrimonyName }) => {
-    return possessionApi()
-      .getPatrimoinePossessionByNom(patrimonyName, possessionName)
-      .then((response) => addPossessionId(response.data));
+    try {
+      const response = await possessionApi().getPatrimoinePossessionByNom(patrimonyName, possessionName);
+      return addPossessionId(response.data);
+    } catch (error) {
+      console.error('Error fetching possession by name:', error);
+      throw error;
+    }
   },
-  getList: async (page, pageSize, _filter, _sort, { patrimonyName }) => {
-    return possessionApi()
-      .getPatrimoinePossessions(patrimonyName, page, pageSize)
-      .then((response) => response.data.data!.map((possession) => addPossessionId(possession)));
+  getList: async (page, pageSize, { patrimonyName }) => {
+    try {
+      const response = await possessionApi().getPatrimoinePossessions(patrimonyName, page, pageSize);
+      return response.data.data!.map((possession) => addPossessionId(possession));
+    } catch (error) {
+      console.error('Error fetching list of possessions:', error);
+      throw error;
+    }
   },
   saveOrUpdate: async (payload, { patrimonyName }) => {
-    return possessionApi()
-      .crupdatePatrimoinePossessions(patrimonyName, 0, 0, {
+    try {
+      const response = await possessionApi().crupdatePatrimoinePossessions(patrimonyName, 0, 0, {
         data: [payload as any],
-      })
-      .then((response) => addPossessionId(response.data.data![0]));
+      });
+      return addPossessionId(response.data.data![0]);
+    } catch (error) {
+      console.error('Error saving or updating possession:', error);
+      throw error;
+    }
   },
   delete: async (possessionName, { patrimonyName }) => {
-    return possessionApi().deletePatrimoinePossessionByNom(patrimonyName, possessionName).then();
+    try {
+      await possessionApi().deletePatrimoinePossessionByNom(patrimonyName, possessionName);
+    } catch (error) {
+      console.error('Error deleting possession by name:', error);
+      throw error;
+    }
   },
 };

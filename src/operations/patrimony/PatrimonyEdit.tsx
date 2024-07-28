@@ -1,11 +1,8 @@
 import { DateInput, Edit, NumberInput, SimpleForm, TextInput, required } from 'react-admin';
-import { useParams } from 'react-router-dom';
 
 export default function PatrimonyEdit() {
-  const { id } = useParams();
-
   return (
-    <Edit id={id}>
+    <Edit>
       <SimpleForm>
         <TextInput fullWidth source='nom' name='Nom' validate={required()} />
         <DateInput fullWidth source='t' name='Date T' validate={required()} />

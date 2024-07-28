@@ -30,7 +30,7 @@ export default function PatrimonyShow() {
 
   return (
     <>
-      <Show id={id} actions={<PatrimonyShowActions />}>
+      <Show title='Patrimony details' id={id} actions={<PatrimonyShowActions />}>
         <SimpleShowLayout>
           <TextField source='nom' label='Nom' />
           <DateField source='t' label='Date T' />

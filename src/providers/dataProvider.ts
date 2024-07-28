@@ -1,3 +1,4 @@
+import { futureProjectionProvider } from '@/providers/futureProjectionProvider.ts';
 import { patrimonyProvider } from '@/providers/patrimonyProvider.ts';
 import { possessionProvider } from '@/providers/possessionProvider.ts';
 
@@ -7,6 +8,7 @@ import { DataProvider } from 'react-admin';
 const getProvider = (resourceType: string): HarenaDataProviderType<any> => {
   if (resourceType === 'patrimony') return patrimonyProvider;
   if (resourceType === 'possession') return possessionProvider;
+  if (resourceType === 'futureProjection') return futureProjectionProvider;
   throw new Error('Unknown resource type ' + resourceType);
 };
 
@@ -25,14 +27,8 @@ export const dataProvider: DataProvider = {
     });
     return { data: response };
   },
-  getList: async (resource, { pagination, sort, filter, meta }) => {
-    const response = await getProvider(resource).getList(
-      pagination?.page || 1,
-      pagination?.perPage || 10,
-      filter,
-      sort,
-      meta
-    );
+  getList: async (resource, { pagination, meta }) => {
+    const response = await getProvider(resource).getList(pagination?.page || 1, pagination?.perPage || 10, meta);
     return {
       data: response,
       total: response.length,
