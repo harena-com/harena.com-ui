@@ -1,6 +1,16 @@
 import { renderMoney } from '@/operations/common/utils/renderMoney.ts';
 
-import { CreateButton, Datagrid, DateField, FunctionField, List, TextField, TopToolbar } from 'react-admin';
+import {
+  CreateButton,
+  Datagrid,
+  DateField,
+  EditButton,
+  FunctionField,
+  List,
+  ShowButton,
+  TextField,
+  TopToolbar,
+} from 'react-admin';
 
 const PatrimonyListActions = () => {
   return (
@@ -18,6 +28,8 @@ export default function PatrimonyList() {
         <DateField source='t' label='Date T' />
         <TextField source='possesseur.nom' label='Possesseur' />
         <FunctionField render={(patrimony) => renderMoney(patrimony.valeur_comptable)} label='Valeur Comptable' />
+        <ShowButton />
+        <EditButton />
       </Datagrid>
     </List>
   );
