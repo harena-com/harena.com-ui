@@ -17,7 +17,7 @@ const addPossessionId = (possession: PossessionAvecType) => {
 export const possessionProvider: HarenaDataProviderType<Possession> = {
   getOne: async (possessionName, { patrimonyName }) => {
     return possessionApi()
-      .getPatrimoinePossessionByNom(possessionName, patrimonyName)
+      .getPatrimoinePossessionByNom(patrimonyName, possessionName)
       .then((response) => addPossessionId(response.data));
   },
   getList: async (page, pageSize, _filter, _sort, { patrimonyName }) => {
@@ -32,7 +32,7 @@ export const possessionProvider: HarenaDataProviderType<Possession> = {
       })
       .then((response) => addPossessionId(response.data.data![0]));
   },
-  delete: () => {
-    throw new Error('Not Implemented');
+  delete: async (possessionName, { patrimonyName }) => {
+    return possessionApi().deletePatrimoinePossessionByNom(patrimonyName, possessionName).then();
   },
 };
