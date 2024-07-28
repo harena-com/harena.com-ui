@@ -1,18 +1,15 @@
-import {Admin, Resource} from "react-admin";
-import {dataProvider} from "@/providers/dataProvider.ts";
-import {darkTheme, lightTheme} from "@/theme.ts";
-import patrimony from "@/operations/patrimoine";
+import { dataProvider } from '@/providers/dataProvider.ts';
+
+import patrimony from '@/operations/patrimony';
+import possession from '@/operations/possession';
+
+import { Admin, Resource } from 'react-admin';
 
 export default function App() {
   return (
-    <Admin
-      title="Harena Admin"
-      dataProvider={dataProvider}
-      defaultTheme="dark"
-      lightTheme={lightTheme}
-      darkTheme={darkTheme}
-    >
-      <Resource name="patrimony" {...patrimony} />
+    <Admin title='Harena Admin' dataProvider={dataProvider}>
+      <Resource name='patrimony' {...patrimony} />
+      <Resource name='possession' {...possession} />
     </Admin>
   );
 }

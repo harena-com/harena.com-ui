@@ -1,15 +1,8 @@
-import {
-  CreateButton,
-  Datagrid,
-  DateField,
-  FunctionField,
-  List,
-  TextField,
-  TopToolbar,
-} from "react-admin";
-import {renderMoney} from "@/lib/utils.ts";
+import { renderMoney } from '@/operations/common/utils/renderMoney.ts';
 
-const PatrimonyListActions = () => {
+import { CreateButton, Datagrid, DateField, FunctionField, List, TextField, TopToolbar } from 'react-admin';
+
+const PossessionListActions = () => {
   return (
     <TopToolbar>
       <CreateButton />
@@ -17,17 +10,14 @@ const PatrimonyListActions = () => {
   );
 };
 
-export default function PossessionList() {
+export default function PossessionList({ patrimonyName }: { patrimonyName: string }) {
   return (
-    <List actions={<PatrimonyListActions />}>
+    <List resource='possession' actions={<PossessionListActions />} queryOptions={{ meta: { patrimonyName } }}>
       <Datagrid bulkActionButtons={false}>
-        <TextField source="nom" label="Nom" />
-        <DateField source="t" label="Date T" />
-        <TextField source="possesseur.nom" label="Possesseur" />
-        <FunctionField
-          render={(patrimony) => renderMoney(patrimony.valeur_comptable)}
-          label="Valeur Comptable"
-        />
+        <DateField source='t' label='Date T' />
+        <TextField source='nom' label='nom' />
+        <FunctionField render={(possession) => renderMoney(possession.valeur_comptable)} label='Valeur Comptable' />
+        <FunctionField render={(possession) => possession.devise.nom} label='Devise' />
       </Datagrid>
     </List>
   );
