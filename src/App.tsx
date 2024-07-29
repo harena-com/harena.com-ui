@@ -6,14 +6,15 @@ import possession from '@/operations/possession';
 
 import { Layout } from '@/layout';
 import { defaultTheme } from '@/themes';
+import { AccountBalance, Inventory, Timeline } from '@mui/icons-material';
 import { Admin, Resource } from 'react-admin';
 
 export default function App() {
   return (
     <Admin title='Harena Admin' layout={Layout} theme={defaultTheme} dataProvider={dataProvider}>
-      <Resource {...patrimony} />
-      <Resource name='possession' {...possession} />
-      <Resource name='futureProjection' {...futureProjection} />
+      <Resource {...patrimony} icon={AccountBalance} />
+      <Resource name='possession' {...possession} icon={Inventory} />
+      <Resource name='futureProjection' {...futureProjection} icon={Timeline} />
     </Admin>
   );
 }

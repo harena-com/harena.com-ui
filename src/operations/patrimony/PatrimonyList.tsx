@@ -17,7 +17,7 @@ import {
 const PatrimonyListActions = () => {
   return (
     <TopToolbar>
-      <CreateButton variant={'contained'} sx={{ paddingY: 1, paddingX: 5, borderRadius: 3 }} />
+      <CreateButton />
     </TopToolbar>
   );
 };
