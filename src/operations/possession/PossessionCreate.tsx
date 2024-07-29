@@ -1,3 +1,5 @@
+import { baseUrl } from '@/utils/axios.ts';
+
 import { usePatrimonyStore } from '@/store/usePatrimoineStore.ts';
 import { Possession } from '@harena-com/typescript-client';
 import { Button, Toolbar, Typography } from '@mui/material';
@@ -5,8 +7,6 @@ import axios from 'axios';
 import { useState } from 'react';
 import { DateInput, NumberInput, SimpleForm, TextInput, required, useNotify } from 'react-admin';
 import { useNavigate } from 'react-router-dom';
-
-const baseUrl = import.meta.env.VITE_HARENA_COM_API;
 
 const CustomToolbar = (props: any) => <Toolbar {...props}></Toolbar>;
 

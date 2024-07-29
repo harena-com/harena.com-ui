@@ -45,7 +45,6 @@ export default function PossessionList() {
         <FunctionField render={(possession) => possession.devise.code} label='Currency Code' />
         <ShowButton />
         <EditButton />
-        <ShowButton />
       </Datagrid>
 
       <Box mt={2}>
