@@ -1,3 +1,3 @@
 export const renderMoney = (value: number) => {
-  return `${value} Ar`;
+  return `${value} Ariary`;
 };

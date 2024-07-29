@@ -4,6 +4,7 @@ import PatrimonyList from '@/operations/patrimony/PatrimonyList.tsx';
 import PatrimonyShow from '@/operations/patrimony/PatrimonyShow.tsx';
 
 const patrimony = {
+  name: 'patrimony',
   list: PatrimonyList,
   show: PatrimonyShow,
   edit: PatrimonyEdit,
