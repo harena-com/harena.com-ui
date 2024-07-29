@@ -14,7 +14,10 @@ jobs:
         with:
           node-version: 20.12.2
 
-      - run: ./init-npm.sh  harena-store npm-hei-school 088312068315 eu-west-3
+      - name: Make init-npm.sh executable
+        run: chmod +x ./init-npm.sh
+
+      - run: ./init-npm.sh harena-store npm-hei-school 088312068315 eu-west-3
 
       - name: Install dependencies
         run: npm ci
@@ -27,3 +30,4 @@ jobs:
 
       - name: Run Build
         run: npm run build
+
