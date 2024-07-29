@@ -28,13 +28,13 @@ export const dataProvider: DataProvider = {
     return { data: response };
   },
   getList: async (resource, { pagination, meta }) => {
-    const response = await getProvider(resource).getList(pagination?.page || 1, pagination?.perPage || 10, meta);
+    const response = await getProvider(resource).getList(pagination?.page || 0, pagination?.perPage || 10, meta);
     return {
       data: response,
       total: response.length,
       pageInfo: {
         hasNextPage: response.length >= (pagination?.perPage || 10),
-        hasPreviousPage: (pagination?.page || 1) > 1,
+        hasPreviousPage: (pagination?.page || 0) > 1,
       },
     };
   },
