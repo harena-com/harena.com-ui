@@ -1,7 +1,9 @@
+import { Toolbar, Typography } from '@mui/material';
 import {
   Create,
   DateInput,
   NumberInput,
+  SaveButton,
   SimpleForm,
   TextInput,
   maxLength,
@@ -10,34 +12,42 @@ import {
   regex,
   required,
 } from 'react-admin';
-import { useParams } from 'react-router-dom';
+
+const PatrimonyEditToolbar = () => (
+  <Toolbar>
+    <SaveButton />
+  </Toolbar>
+);
 
 export default function PatrimonyCreate() {
-  const { id } = useParams();
-
   return (
-    <Create id={id} resource='patrimony'>
-      <SimpleForm>
-        <TextInput
-          fullWidth
-          source='nom'
-          label='Nom'
-          validate={[required(), minLength(2), maxLength(100), regex(/^[A-Za-z\s]+$/, 'Must be a valid name')]}
-        />
-        <DateInput fullWidth source='t' label='Date T' validate={required()} />
-        <TextInput
-          fullWidth
-          source='possesseur.nom'
-          label='Possesseur'
-          validate={[required(), minLength(2), maxLength(100), regex(/^[A-Za-z\s]+$/, 'Must be a valid name')]}
-        />
-        <NumberInput
-          fullWidth
-          source='valeur_comptable'
-          label='Valeur Comptable'
-          validate={[required(), number('Must be a number')]}
-        />
-      </SimpleForm>
-    </Create>
+    <>
+      <Typography variant='h5' fontWeight={600}>
+        Create new patrimony here 🇲🇬
+      </Typography>
+      <Create title='' resource='patrimony'>
+        <SimpleForm toolbar={<PatrimonyEditToolbar />}>
+          <TextInput
+            fullWidth
+            source='nom'
+            label='Patrimony name'
+            validate={[required(), minLength(2), maxLength(100), regex(/^[A-Za-z\s]+$/, 'Must be a valid name')]}
+          />
+          <DateInput fullWidth source='t' label='Timestamp' validate={required()} />
+          <TextInput
+            fullWidth
+            source='possesseur.nom'
+            label='Possessor'
+            validate={[required(), minLength(2), maxLength(100), regex(/^[A-Za-z\s]+$/, 'Must be a valid name')]}
+          />
+          <NumberInput
+            fullWidth
+            source='valeur_comptable'
+            label='Book value'
+            validate={[required(), number('Must be a number')]}
+          />
+        </SimpleForm>
+      </Create>
+    </>
   );
 }

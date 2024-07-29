@@ -23,7 +23,7 @@ export default function PatrimonyEdit() {
   return (
     <>
       <Typography variant='h5' fontWeight={600}>
-        Edit patrimony here
+        Edit patrimony here 🇲🇬
       </Typography>
       <Edit resource='patrimony' title='Edit patrimony'>
         <SimpleForm toolbar={<PatrimonyEditToolbar />}>

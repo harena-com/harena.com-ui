@@ -11,9 +11,9 @@ import { useParams } from 'react-router-dom';
 const PatrimonyDetails = ({ id }: { id: string }) => (
   <>
     <Typography variant='h5' fontWeight={600}>
-      Patrimony details
+      Patrimony details 🇲🇬
     </Typography>
-    <Show sx={{ marginBottom: 10 }} resource='patrimony' id={id}>
+    <Show title=' ' sx={{ marginBottom: 10 }} resource='patrimony' id={id}>
       <ShowLayout>
         <Grid container paddingY={5} rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
           <Grid item xs={6}>
@@ -49,7 +49,7 @@ const PatrimonyDetails = ({ id }: { id: string }) => (
 const PatrimonyPossessions = () => (
   <>
     <Typography variant='h5' fontWeight={600}>
-      Possessions from this patrimony
+      Possessions from this patrimony 🇲🇬
     </Typography>
     <PossessionList />
   </>
