@@ -13,7 +13,7 @@ export default function App() {
   return (
     <Admin title='Harena Admin' layout={Layout} theme={defaultTheme} dataProvider={dataProvider}>
       <Resource {...patrimony} icon={AccountBalance} />
-      <Resource name='possession' {...possession} icon={Inventory} />
+      <Resource {...possession} icon={Inventory} />
       <Resource name='futureProjection' {...futureProjection} icon={Timeline} />
     </Admin>
   );

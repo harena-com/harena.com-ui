@@ -4,6 +4,7 @@ import PossessionList from '@/operations/possession/PossessionList.tsx';
 import PossessionShow from '@/operations/possession/PossessionShow.tsx';
 
 const possession = {
+  name: 'possession',
   list: PossessionList,
   show: PossessionShow,
   create: PossessionCreate,

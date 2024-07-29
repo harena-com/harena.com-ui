@@ -1,7 +1,19 @@
 import { renderMoney } from '@/operations/common/utils/renderMoney.ts';
+import { Pagination } from '@/operations/components/list.tsx';
 
 import { usePatrimonyStore } from '@/store/usePatrimoineStore.ts';
-import { CreateButton, Datagrid, DateField, FunctionField, List, ShowButton, TextField, TopToolbar } from 'react-admin';
+import { Box } from '@mui/material';
+import {
+  CreateButton,
+  Datagrid,
+  DateField,
+  EditButton,
+  FunctionField,
+  List,
+  ShowButton,
+  TextField,
+  TopToolbar,
+} from 'react-admin';
 
 const PossessionListActions = () => {
   return (
@@ -26,13 +38,19 @@ export default function PossessionList() {
       queryOptions={{ meta: { patrimonyName } }}
     >
       <Datagrid bulkActionButtons={false}>
-        <DateField source='t' label='Date T' />
-        <TextField source='nom' label='nom' />
-        <FunctionField render={(possession) => renderMoney(possession.valeur_comptable)} label='Valeur Comptable' />
-        <FunctionField render={(possession) => possession.devise.nom} label='Nom Devise' />
-        <FunctionField render={(possession) => possession.devise.code} label='Code' />
+        <DateField source='t' label='Date' />
+        <TextField source='nom' label='Name' />
+        <FunctionField render={(possession) => renderMoney(possession.valeur_comptable)} label='Book Value' />
+        <FunctionField render={(possession) => possession.devise.nom} label='Currency Name' />
+        <FunctionField render={(possession) => possession.devise.code} label='Currency Code' />
+        <ShowButton />
+        <EditButton />
         <ShowButton />
       </Datagrid>
+
+      <Box mt={2}>
+        <Pagination />
+      </Box>
     </List>
   );
 }
