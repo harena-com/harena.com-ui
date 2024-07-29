@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.2](https://github.com/harena-com/harena.com-ui/compare/v0.2.0...v0.2.2) (2024-07-29)
+
+
+### Features
+
+* create possession ([05c989e](https://github.com/harena-com/harena.com-ui/commit/05c989ebf6815b498b1319ed7afeb6d180c32c1c))
+
 ### [0.2.1](https://github.com/harena-com/harena.com-ui/compare/v0.2.0...v0.2.1) (2024-07-29)
 
 ## [0.2.0](https://github.com/harena-com/harena.com-ui/compare/v0.0.3...v0.2.0) (2024-07-28)
