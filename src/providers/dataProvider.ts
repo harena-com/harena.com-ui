@@ -27,14 +27,18 @@ export const dataProvider: DataProvider = {
     });
     return { data: response };
   },
-  getList: async (resource, { pagination, meta }) => {
-    const response = await getProvider(resource).getList(pagination?.page || 0, pagination?.perPage || 10, meta);
+  getList: async (resource, { pagination = { page: 0, perPage: 10 }, meta }) => {
+    const page = pagination.page || 0;
+    const perPage = pagination.perPage || 10;
+
+    const response = await getProvider(resource).getList(page - 1, perPage, meta);
+
     return {
       data: response,
       total: response.length,
       pageInfo: {
-        hasNextPage: response.length >= (pagination?.perPage || 10),
-        hasPreviousPage: (pagination?.page || 0) > 1,
+        hasNextPage: response.length >= perPage,
+        hasPreviousPage: page > 0,
       },
     };
   },

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.3](https://github.com/harena-com/harena.com-ui/compare/v0.2.2...v0.2.3) (2024-07-29)
+
+### Bug Fixes
+
+- pagination start 0 ([e8504af](https://github.com/harena-com/harena.com-ui/commit/e8504af3fd570b893fb1f751fd640b50513e78b3))
+
 ### [0.2.2](https://github.com/harena-com/harena.com-ui/compare/v0.2.0...v0.2.2) (2024-07-29)
 
 ### Features
